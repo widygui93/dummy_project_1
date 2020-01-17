@@ -13,6 +13,25 @@ $(document).ready(function(){
         }
     });
 
+    $(".container-act-list").on('click', '.badge-primary' ,function(event){
+        event.preventDefault();
+        let oldActv = $(this).parent().prev().text();
+        let newActv = prompt("Please edit your activity", oldActv);
+
+        if(newActv != null){
+            $.post("ajax/editActv.php",
+            {
+                actv: newActv
+            },
+            function(data, status){
+                $(".container-act-list").html(data);
+            });
+        } else{
+            alert("please input new actv");
+        }
+        
+    });
+
     
 
 });

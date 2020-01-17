@@ -76,6 +76,24 @@ function markActv($id){
     mysqli_query($conn, "UPDATE activity SET has_actv_finished = 'y' WHERE id = $id" );
 }
 
+function edit($new_actv){
+    global $conn;
+
+    $newActv = htmlspecialchars($new_actv);
+
+
+    // query update
+    $query = " UPDATE activity SET 
+                activity_name='$newActv'
+            WHERE id='69';
+    ";
+
+    mysqli_query($conn,$query);
+
+    return mysqli_affected_rows($conn);
+
+}
+
 
 
 
