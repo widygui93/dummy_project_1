@@ -15,13 +15,15 @@ $(document).ready(function(){
 
     $(".container-act-list").on('click', '.badge-primary' ,function(event){
         event.preventDefault();
+        let id = $(this).next().attr("href").substring(17);
         let oldActv = $(this).parent().prev().text();
         let newActv = prompt("Please edit your activity", oldActv);
 
         if(newActv != null){
             $.post("ajax/editActv.php",
             {
-                actv: newActv
+                actv: newActv ,
+                idEditActv: id
             },
             function(data, status){
                 $(".container-act-list").html(data);

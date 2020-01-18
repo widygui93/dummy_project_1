@@ -2,8 +2,9 @@
 require '../php/functions.php';
 
 $new_actv = $_POST["actv"];
+$id_actv  = $_POST["idEditActv"];
 
-edit($new_actv);
+edit($new_actv, $id_actv);
 
 $activity = query("SELECT * FROM activity ORDER BY id DESC");
 

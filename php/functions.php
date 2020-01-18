@@ -76,7 +76,7 @@ function markActv($id){
     mysqli_query($conn, "UPDATE activity SET has_actv_finished = 'y' WHERE id = $id" );
 }
 
-function edit($new_actv){
+function edit($new_actv, $id_actv){
     global $conn;
 
     $newActv = htmlspecialchars($new_actv);
@@ -85,7 +85,7 @@ function edit($new_actv){
     // query update
     $query = " UPDATE activity SET 
                 activity_name='$newActv'
-            WHERE id='69';
+            WHERE id='$id_actv';
     ";
 
     mysqli_query($conn,$query);
