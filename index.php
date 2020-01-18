@@ -74,7 +74,6 @@ $activity = query("SELECT * FROM activity ORDER BY id DESC");
                     <div class="form-group">
                         <label for="search">Search Activity </label>
                         <input type="text" class="form-control" id="search" placeholder="Search activity" name="activity_name" autofocus autocomplete="off" required>
-                        <!-- <button type="submit" class="btn btn-outline-primary" name="search">Search</button> -->
                     </div>
                 </form>
             </div>
