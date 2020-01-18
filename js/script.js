@@ -34,6 +34,10 @@ $(document).ready(function(){
         
     });
 
+    $("#search").keyup(function(){
+        $(".container-act-list").load("ajax/searchActv.php?q=" + $("#search").val() );
+    });
+
     
 
 });
