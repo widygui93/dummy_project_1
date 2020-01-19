@@ -47,6 +47,7 @@ $activity = query("SELECT * FROM activity ORDER BY id DESC");
         .disableLink {
             pointer-events: none;
             text-decoration: line-through;
+            text-decoration-color: red;
         }
     </style>
 </head>
