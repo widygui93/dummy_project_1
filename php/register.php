@@ -39,44 +39,86 @@ if( isset($_POST["register"]) ) {
     }
     h1 {
         text-align: center;
+        color: white;
+        /* text-shadow: 3px 2px blue; */
+        font-family: "Times New Roman", Times, serif;
+        /* width: 50%; */
+        /* border: 1px solid black; */
+        /* border-left-style: 5px solid blue; */
     }
     .form-control, .alert {
-        width: 200px;
+        /* width: 200px; */
     }
 
     form {
+        /* background-color: #ccc8b6; */
         /* margin-left: 10px; */
-        border: 1px solid black;
-        margin-top: 100px;
-        /* margin-bottom: 100px; */
-        /* margin-right: 140px; */
-        /* margin-left: 140px; */
+        /* border: 1px solid black; */
+        margin-top: 14px;
+        margin-bottom: 14px;
+        margin-right: 14px;
+        margin-left: 14px;
         /* background-color: lightblue; */
-        width: 50%;
+        /* width: 25%; */
         /* padding-left: 10px; */
     }
+
+    .wrapper {
+        border: 10px outset lightblue;
+        /* border-radius: 5px; */
+        width: 55%;
+        background-color: white;
+        /* padding: 25px; */
+
+        margin-top: 25px;
+        /* margin-left: 25px; */
+        /* margin-right: 25px; */
+        /* margin: 25px; */
+        margin: auto;
+    }
+
+    label {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
     
     </style>
 </head>
 <body>
-    
-    <h1>Halaman Registrasi</h1>
 
-    <form action="" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+    <di class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Halaman Registrasi</h1>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+        <div class="row">
+            <div class="col-sm">
+                <div class="wrapper">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Confirm Password</label>
+                            <input type="password" class="form-control" id="password2" placeholder="Enter Confirm password" name="password2" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="register">Daftar</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password2">Confirm Password</label>
-            <input type="password" class="form-control" id="password2" placeholder="Enter Confirm password" name="password2" required>
-        </div>
-        <button type="submit" class="btn btn-primary" name="register">Daftar</button>
-    </form>
+    </div>
+    
+    
+
+    
 
     <script src="../js/jquery-3.4.1.min.js"></script>
 </body>
