@@ -69,7 +69,7 @@ $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id 
         </div>
         <div class="row">
             <div class="col-sm">
-                <a href="" class="badge badge-warning">Logout</a>
+                <a href="php/logout.php" class="badge badge-warning">Logout</a>
                 <p> Good <?= $waktu; ?>, <strong><?= $user; ?></strong></p> 
             </div>
         </div>
