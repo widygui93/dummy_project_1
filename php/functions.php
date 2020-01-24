@@ -63,7 +63,7 @@ function checkActv($id, $user_name) {
 }
 
 function checkDisableLink($id, $user_name){
-    $doneActvity = query(" SELECT * FROM activity WHERE has_actv_finished = 'y' AND user_name = '$user_name ");
+    $doneActvity = query(" SELECT * FROM activity WHERE has_actv_finished = 'y' AND user_name = '$user_name' ");
     foreach( $doneActvity as $doneActv) {
         if( $doneActv["id"] == $id ) {
             return 'disableLink';
