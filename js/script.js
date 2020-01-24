@@ -5,7 +5,8 @@ $(document).ready(function(){
         } else {
             $.post("ajax/activity.php",
             {
-                actv: $("#add").val()
+                actv: $("#add").val(),
+                usr: $("strong").text()
             },
             function(data, status){
                 $(".container-act-list").html(data);
@@ -15,6 +16,7 @@ $(document).ready(function(){
 
     $(".container-act-list").on('click', '.badge-primary' ,function(event){
         event.preventDefault();
+        let usr = $("strong").text();
         let id = $(this).next().attr("href").substring(17);
         let oldActv = $(this).parent().prev().text();
         let newActv = prompt("Please edit your activity", oldActv);
@@ -23,7 +25,8 @@ $(document).ready(function(){
             $.post("ajax/editActv.php",
             {
                 actv: newActv ,
-                idEditActv: id
+                idEditActv: id,
+                user: usr
             },
             function(data, status){
                 $(".container-act-list").html(data);
@@ -35,7 +38,7 @@ $(document).ready(function(){
     });
 
     $("#search").keyup(function(){
-        $(".container-act-list").load("ajax/searchActv.php?q=" + $("#search").val() );
+        $(".container-act-list").load("ajax/searchActv.php?q=" + $("#search").val() + "&u=" + $("strong").text() );
     });
 
     

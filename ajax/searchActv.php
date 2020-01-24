@@ -3,8 +3,9 @@
 require '../php/functions.php';
 
 $actv_by_search = $_GET["q"];
+$usr_by_search = $_GET["u"];
 
-$activity = query("SELECT * FROM activity WHERE activity_name LIKE '%$actv_by_search%' ORDER BY id DESC ");
+$activity = query("SELECT * FROM activity WHERE activity_name LIKE '%$actv_by_search%' AND user_name = '$usr_by_search' ORDER BY id DESC ");
 
 ?>
 

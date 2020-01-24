@@ -3,11 +3,12 @@
 require '../php/functions.php';
 
 $nama_actv = $_POST["actv"];
+$nama_user = $_POST["usr"];
 
 
-tambah($nama_actv);
+tambah($nama_actv, $nama_user);
 
-$activity = query("SELECT * FROM activity ORDER BY id DESC");
+$activity = query("SELECT * FROM activity WHERE user_name = '$nama_user' ORDER BY id DESC");
 
 
 ?>

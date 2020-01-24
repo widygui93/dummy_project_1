@@ -28,15 +28,16 @@ function tentukan_waktu() {
     }
 }
 
-function tambah($data) {
+function tambah($data_actv, $data_usr) {
     global $conn;
 
-    $activitas = htmlspecialchars($data);
+    $activitas = htmlspecialchars($data_actv);
+    $user = htmlspecialchars($data_usr);
 
     // query insert data
     $query = " INSERT INTO activity
                 VALUES
-            ('', 'user123', '$activitas','n') 
+            ('', '$user', '$activitas','n') 
     ";
 
     mysqli_query($conn,$query);
@@ -52,8 +53,8 @@ function hapus($id) {
     return mysqli_affected_rows($conn);
 }
 
-function checkActv($id) {
-    $doneActvity = query(" SELECT * FROM activity WHERE has_actv_finished = 'y' ");
+function checkActv($id, $user_name) {
+    $doneActvity = query(" SELECT * FROM activity WHERE has_actv_finished = 'y' AND user_name = '$user_name' ");
     foreach( $doneActvity as $doneActv) {
         if( $doneActv["id"] == $id ) {
             return 'class="done"';
@@ -61,8 +62,8 @@ function checkActv($id) {
     }
 }
 
-function checkDisableLink($id){
-    $doneActvity = query(" SELECT * FROM activity WHERE has_actv_finished = 'y' ");
+function checkDisableLink($id, $user_name){
+    $doneActvity = query(" SELECT * FROM activity WHERE has_actv_finished = 'y' AND user_name = '$user_name ");
     foreach( $doneActvity as $doneActv) {
         if( $doneActv["id"] == $id ) {
             return 'disableLink';

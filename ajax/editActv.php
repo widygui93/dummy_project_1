@@ -3,10 +3,11 @@ require '../php/functions.php';
 
 $new_actv = $_POST["actv"];
 $id_actv  = $_POST["idEditActv"];
+$user = $_POST["user"];
 
 edit($new_actv, $id_actv);
 
-$activity = query("SELECT * FROM activity ORDER BY id DESC");
+$activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC");
 
 
 ?>

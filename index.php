@@ -1,11 +1,20 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"]) ) {
+    // arahkan user balik ke login
+    header('Location: php/login.php');
+    exit;
+}
+
+
 require "php/functions.php";
 
-$user = "user123";
+$user = $_SESSION["user"];
 
 $waktu = tentukan_waktu();
 
-$activity = query("SELECT * FROM activity ORDER BY id DESC");
+$activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC");
 
 
 ?>
@@ -91,12 +100,12 @@ $activity = query("SELECT * FROM activity ORDER BY id DESC");
                         <?php $no = 1; ?>
                         <?php foreach( $activity as $act ) : ?>
                             <tr>
-                                <td <?= checkActv($act["id"]); ?> ><?= $no; ?></td>
-                                <td <?= checkActv($act["id"]); ?> ><?= $act["activity_name"]; ?></td>
+                                <td <?= checkActv($act["id"], $act["user_name"]); ?> ><?= $no; ?></td>
+                                <td <?= checkActv($act["id"], $act["user_name"]); ?> ><?= $act["activity_name"]; ?></td>
                                 <td>
-                                    <a href="#" class="badge badge-primary <?= checkDisableLink($act["id"]); ?> ">Edit</a>
+                                    <a href="#" class="badge badge-primary <?= checkDisableLink($act["id"], $act["user_name"]); ?> ">Edit</a>
                                     <a href="php/hapus.php?id=<?= $act["id"]; ?>" class="badge badge-danger" onclick="return confirm('Do you want to delete this?');">Delete</a>
-                                    <a href="php/doneActv.php?id=<?= $act["id"]; ?>" class="badge badge-success <?= checkDisableLink($act["id"]); ?> ">Done</a>
+                                    <a href="php/doneActv.php?id=<?= $act["id"]; ?>" class="badge badge-success <?= checkDisableLink($act["id"], $act["user_name"]); ?> ">Done</a>
                                 </td>
                             </tr>
                             <?php $no++; ?>
