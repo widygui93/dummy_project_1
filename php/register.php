@@ -37,6 +37,14 @@ if( isset($_POST["register"]) ) {
     body {
         background-color: #ccc8b6;
     }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
     h1 {
         text-align: center;
         color: white;
