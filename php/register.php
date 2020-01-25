@@ -74,7 +74,7 @@ if( isset($_POST["register"]) ) {
     <di class="container">
         <div class="row">
             <div class="col-sm">
-                <h1>Halaman Registrasi</h1>
+                <h1>Registration</h1>
             </div>
         </div>
         <div class="row">
@@ -90,7 +90,7 @@ if( isset($_POST["register"]) ) {
                         <div class="form-group">
                             <input type="password" class="form-control" id="password2" placeholder="Enter Confirm password" name="password2" required>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="register">Daftar</button>
+                        <button type="submit" class="btn btn-primary" name="register">Submit</button>
                         <a href="login.php" role="button">Already have an account? Login here</a>
                     </form>
                 </div>
