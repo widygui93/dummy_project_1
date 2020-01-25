@@ -1,11 +1,11 @@
 <?php
-// session_start();
+session_start();
 
-// if ( !isset($_SESSION["login"]) ) {
-//     // arahkan user balik ke login
-//     header('Location: login.php');
-//     exit;
-// }
+if ( !isset($_SESSION["login"]) ) {
+    // arahkan user balik ke login
+    header('Location: login.php');
+    exit;
+}
 
 require "functions.php";
 
