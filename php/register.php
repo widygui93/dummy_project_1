@@ -62,8 +62,10 @@ if( isset($_POST["register"]) ) {
         text-decoration: underline;
     }
 
-    
-
+    a {
+        font-style: italic;
+        font-size: 0.875em;
+    }
     
     </style>
 </head>
@@ -89,6 +91,7 @@ if( isset($_POST["register"]) ) {
                             <input type="password" class="form-control" id="password2" placeholder="Enter Confirm password" name="password2" required>
                         </div>
                         <button type="submit" class="btn btn-primary" name="register">Daftar</button>
+                        <a href="login.php" role="button">Already have an account? Login here</a>
                     </form>
                 </div>
             </div>
