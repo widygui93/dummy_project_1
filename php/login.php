@@ -67,10 +67,6 @@ if( isset($_POST["login"]) ) {
         font-family: "Times New Roman", Times, serif;
     }
 
-    /* .form-control, .alert {
-        width: 200px;
-    } */
-
     form {
         margin-top: 14px;
         margin-bottom: 14px;
@@ -84,6 +80,11 @@ if( isset($_POST["login"]) ) {
         background-color: white;
         margin-top: 25px;
         margin: auto;
+    }
+
+    a {
+        font-style: italic;
+        font-size: 0.875em;
     }
 
     
@@ -102,18 +103,15 @@ if( isset($_POST["login"]) ) {
                 <div class="wrapper">
                     <form action="" method="post">
                         <div class="form-group">
-                            <!-- <label for="username">Username</label> -->
                             <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
                         </div>
                         <div class="form-group">
-                            <!-- <label for="password">Password</label> -->
                             <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login">Login</button>
-                        <a class="btn btn-primary" href="register.php" role="button">Register</a>
+                        <a href="register.php" role="button">Dont have an account? Register here</a>
                     </form>
                 </div>
-                
             </div>
         </div>
     </div>
