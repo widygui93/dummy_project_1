@@ -1,5 +1,13 @@
 <?php 
 
+session_start();
+
+if ( !isset($_SESSION["login"]) ) {
+    // arahkan user balik ke login
+    header('Location: ../php/login.php');
+    exit;
+}
+
 require '../php/functions.php';
 
 $nama_actv = $_POST["actv"];
