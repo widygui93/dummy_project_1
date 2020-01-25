@@ -61,6 +61,13 @@ if( isset($_POST["login"]) ) {
         background-color: #ccc8b6;
     }
 
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
     h1 {
         text-align: center;
         color: white;
@@ -95,7 +102,7 @@ if( isset($_POST["login"]) ) {
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h1>Halaman Login</h1>
+                <h1>Login</h1>
             </div>
         </div>
         <div class="row">
