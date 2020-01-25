@@ -57,32 +57,67 @@ if( isset($_POST["login"]) ) {
     
 
     <style>
-    .form-control, .alert {
-        width: 200px;
+    body {
+        background-color: #ccc8b6;
     }
 
-    form {
-        margin-left: 10px;
+    h1 {
+        text-align: center;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
     }
+
+    /* .form-control, .alert {
+        width: 200px;
+    } */
+
+    form {
+        margin-top: 14px;
+        margin-bottom: 14px;
+        margin-right: 14px;
+        margin-left: 14px;
+    }
+
+    .wrapper {
+        border: 10px outset lightblue;
+        width: 55%;
+        background-color: white;
+        margin-top: 25px;
+        margin: auto;
+    }
+
     
     </style>
 </head>
 <body>
-    
-    <h1>Halaman Login</h1>
 
-    <form action="" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Halaman Login</h1>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+        <div class="row">
+            <div class="col-sm">
+                <div class="wrapper">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <!-- <label for="username">Username</label> -->
+                            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="password">Password</label> -->
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="login">Login</button>
+                        <a class="btn btn-primary" href="register.php" role="button">Register</a>
+                    </form>
+                </div>
+                
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" name="login">Login</button>
-        <a class="btn btn-primary" href="register.php" role="button">Register</a>
-    </form>
+    </div>
+    
 
     <?php if(isset($error)) : ?>
         <div class="alert alert-danger" role="alert">
