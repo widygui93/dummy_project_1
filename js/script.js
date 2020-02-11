@@ -14,7 +14,9 @@ $(document).ready(function(){
         }
     });
 
-    $(".container-act-list").on('click', '.badge-primary' ,function(event){
+    // edit untuk halaman index karena
+    // direktory ajak nya beda dengan edit di halaman search
+    $(".container-act-list").on('click', '#edit_at_index' ,function(event){
         event.preventDefault();
         let usr = $("strong").text();
         let id = $(this).next().attr("href").substring(17);
@@ -37,9 +39,33 @@ $(document).ready(function(){
         
     });
 
-    $("#search").keyup(function(){
-        $(".container-act-list").load("ajax/searchActv.php?q=" + $("#search").val() + "&u=" + $("strong").text() );
+    // edit untuk halaman search
+    $(".container-act-list").on('click', '#edit_at_search' ,function(event){
+        event.preventDefault();
+        let usr = $("strong").text();
+        let id = $(this).next().attr("href").substring(13);
+        let key = $("span.badge-success").text();
+        let oldActv = $(this).parent().prev().text();
+        let newActv = prompt("Please edit your activity", oldActv);
+
+        if(newActv != null){
+            $.post("../ajax/editActvAtSearchPage.php",
+            {
+                actv: newActv ,
+                idEditActv: id,
+                user: usr,
+                keyword: key
+            },
+            function(data, status){
+                $(".container-act-list").html(data);
+            });
+        } else{
+            alert("please input new actv");
+        }
+        
     });
+
+    
 
     
 
