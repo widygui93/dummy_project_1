@@ -122,6 +122,10 @@ if( isset($_POST["submit"]) ){
             margin-left: 5px;
             /* margin-right: 5px; */
         }
+        span.badge-success {
+            margin-top: 20px;
+            border: black 2px solid;
+        }
     </style>
 </head>
 <body>

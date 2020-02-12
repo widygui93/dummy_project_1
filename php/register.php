@@ -47,7 +47,7 @@ if( isset($_POST["register"]) ) {
 
     h1 {
         text-align: center;
-        color: white;
+        color: blue;
         font-family: "Times New Roman", Times, serif;
     }
     form {

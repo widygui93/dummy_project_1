@@ -70,7 +70,7 @@ if( isset($_POST["login"]) ) {
 
     h1 {
         text-align: center;
-        color: white;
+        color: blue;
         font-family: "Times New Roman", Times, serif;
     }
 
