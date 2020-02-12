@@ -1,2 +1,5 @@
 # **_dummy_project_1_**
-this repo for implement basic php
+This repo for implement basic php
+
+# **_about_**
+In this web app, you can add your activity for reminder. You need to register and login at first. Every time you add your activity, it will store in database. Therefore every time you login back , you will find your activities. Other features are edit activity, delete activity, search activity and even mark activity as done activity. When it is a done activity, you will not able to edit or done the activity. Only delete feature will be able for done activities.
