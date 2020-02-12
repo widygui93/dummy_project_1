@@ -19,38 +19,17 @@ $waktu = tentukan_waktu();
 $keyword_pencarian = null;
 
 
-// $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC");
-
-
-// konfigurasi pagination
-// if ( !isset($_GET["halaman"]) && !isset($_POST["submit"]) ){
-//     global $user;
-//     $jumlahDataPerHalaman = 5;
-//     $totalData = count(query("SELECT * FROM activity WHERE user_name = '$user' "));
-//     $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
-//     $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
-//     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-
-//     // varible activity merupkan array dalam array
-//     $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
-// }
-
 if( !isset($_POST["submit"]) ){
 
     if ( isset($_GET["halaman"]) && isset($_GET["q"]) ) {
-        // global $mobil;
         global $user;
         $actv_by_search = $_GET["q"];
         
-
-        // konfigurasi pagination saat klik cari
         $jumlahDataPerHalaman = 5;
         $totalData = count(query("SELECT * FROM activity WHERE activity_name LIKE '%$actv_by_search%' AND user_name = '$user'"));
         $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
         $halamanAktif =   ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
         $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-
-        // $mobil = query("SELECT * FROM mobil WHERE nama LIKE '%$nama_by_search%' LIMIT $awalData, $jumlahDataPerHalaman");
 
         $activity = query("SELECT * FROM activity WHERE activity_name LIKE '%$actv_by_search%' AND user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
         $keyword_pencarian = $actv_by_search;
@@ -65,13 +44,11 @@ if( isset($_POST["submit"]) ){
     $jumlahDataPerHalaman = 5;
     $totalData = count(query("SELECT * FROM activity WHERE activity_name LIKE '%$actv_by_search%' AND user_name = '$user' "));
     $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
-    // $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
     $halamanAktif = 1;
     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
     // varible activity merupkan array dalam array
     $activity = query("SELECT * FROM activity WHERE activity_name LIKE '%$actv_by_search%' AND user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman ");
-    // $_SESSION["cari"] = $actv_by_search;
     $keyword_pencarian = $actv_by_search;
 }
 
@@ -96,9 +73,6 @@ if( isset($_POST["submit"]) ){
         body{
             background-color: #ccc8b6;
         }
-        /* .container, .row, .col-sm {
-            border: black 2px solid;
-        } */
         h1 {
             text-align: center;
         }
@@ -107,9 +81,6 @@ if( isset($_POST["submit"]) ){
             margin-bottom: 10px;
             margin-top: 10px;
         }
-        /* button {
-            margin-top: 5px;
-        } */
         .done {
             background-color: greenyellow;
         }
@@ -120,7 +91,6 @@ if( isset($_POST["submit"]) ){
         }
         input, button {
             margin-left: 5px;
-            /* margin-right: 5px; */
         }
         span.badge-success {
             margin-top: 20px;
@@ -142,11 +112,6 @@ if( isset($_POST["submit"]) ){
         </div>
         <div class="row">
             <div class="col-sm">
-                <!-- <div>
-                    <p>Add Activity</p>
-                    <input type="text" class="form-control" id="add" placeholder="Enter activity" name="activity_name" autofocus autocomplete="off">
-                    <button class="btn btn-outline-primary" id="tambah">Add</button>
-                </div> -->
                 <a href="../index.php">Go Back</a>
                 <form action="" method="post" class="form-inline">
                     <div class="form-group">

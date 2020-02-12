@@ -18,34 +18,14 @@ $keyword_pencarian = $_POST["keyword"];
 edit($new_actv, $id_actv);
 
 
-// if ( !isset($_GET["halaman"]) ){
-// global $user;
 $jumlahDataPerHalaman = 5;
 $totalData = count(query("SELECT * FROM activity WHERE activity_name LIKE '%$keyword_pencarian%' AND user_name = '$user' "));
 $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
-// $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
 $halamanAktif = 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
 $activity = query("SELECT * FROM activity WHERE activity_name LIKE '%$keyword_pencarian%' AND user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
 
-    // }
-
-
-// if ( isset($_GET["halaman"]) && isset($_GET["q"]) ) {
-//     global $user;
-
-//     printf("test saja");
-
-//     $jumlahDataPerHalaman = 5;
-//     $totalData = count(query("SELECT * FROM activity WHERE user_name = '$user'"));
-//     $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
-//     $halamanAktif =   ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
-//     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-
-//     $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
-    
-// }
 
 ?>
 

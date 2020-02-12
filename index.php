@@ -16,9 +16,6 @@ $user = $_SESSION["user"];
 
 $waktu = tentukan_waktu();
 
-// $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC");
-
-
 // konfigurasi pagination
 if ( !isset($_GET["halaman"]) ){
     global $user;
@@ -28,15 +25,11 @@ if ( !isset($_GET["halaman"]) ){
     $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-    // varible activity merupkan array dalam array
     $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
 }
 
 
 if ( isset($_GET["halaman"]) ) {
-    // global $mobil;
-
-    
 
     // konfigurasi pagination saat klik cari
     $jumlahDataPerHalaman = 5;
@@ -44,8 +37,6 @@ if ( isset($_GET["halaman"]) ) {
     $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
     $halamanAktif =   ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-
-    // $mobil = query("SELECT * FROM mobil WHERE nama LIKE '%$nama_by_search%' LIMIT $awalData, $jumlahDataPerHalaman");
 
     $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
     
@@ -72,9 +63,6 @@ if ( isset($_GET["halaman"]) ) {
         body{
             background-color: #ccc8b6;
         }
-        /* .container, .row, .col-sm {
-            border: black 2px solid;
-        } */
         h1 {
             text-align: center;
         }
@@ -116,12 +104,6 @@ if ( isset($_GET["halaman"]) ) {
                     <button class="btn btn-outline-primary" id="tambah">Add</button>
                 </div>
                 <a href="php/search.php">search activity</a>
-                <!-- <form action="" method="post">
-                    <div class="form-group">
-                        <label for="search">Search Activity </label>
-                        <input type="text" class="form-control" id="search" placeholder="Search activity" name="activity_name" autofocus autocomplete="off" required>
-                    </div>
-                </form> -->
             </div>
         </div>
         <div class="row">

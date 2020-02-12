@@ -42,13 +42,9 @@ if ( isset($_GET["halaman"]) ) {
     $halamanAktif =   ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-    // $mobil = query("SELECT * FROM mobil WHERE nama LIKE '%$nama_by_search%' LIMIT $awalData, $jumlahDataPerHalaman");
-
     $activity = query("SELECT * FROM activity WHERE user_name = '$nama_user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
     
 }
-
-// $activity = query("SELECT * FROM activity WHERE user_name = '$nama_user' ORDER BY id DESC");
 
 
 ?>

@@ -33,23 +33,15 @@ if ( !isset($_GET["halaman"]) ){
 if ( isset($_GET["halaman"]) ) {
     global $user;
 
-    
-
-    // konfigurasi pagination saat klik cari
     $jumlahDataPerHalaman = 5;
     $totalData = count(query("SELECT * FROM activity WHERE user_name = '$user'"));
     $totalHalaman = ceil($totalData / $jumlahDataPerHalaman);
     $halamanAktif =   ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
     $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-    // $mobil = query("SELECT * FROM mobil WHERE nama LIKE '%$nama_by_search%' LIMIT $awalData, $jumlahDataPerHalaman");
-
     $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
     
 }
-
-// $activity = query("SELECT * FROM activity WHERE user_name = '$user' ORDER BY id DESC");
-
 
 ?>
 
