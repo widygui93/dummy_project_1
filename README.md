@@ -8,7 +8,7 @@ In this web app, you can add your activity for reminder. You need to register an
 ![Capture](https://user-images.githubusercontent.com/51254100/74342843-b8651e80-4ddc-11ea-8698-4394cd6a72b8.PNG)
 
 # **_tech stack_**
-php
-mysql
-ajax
-bootstrap
+* php,
+* mysql,
+* ajax,
+* bootstrap
