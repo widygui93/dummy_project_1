@@ -147,53 +147,55 @@ if( isset($_POST["submit"]) ){
                                 <?php $no++; ?>
                             <?php endforeach; ?>
                         </table>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <?php if( $halamanAktif == 1 ) : ?>
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </li>
-                                <?php else: ?>
-                                    <li class="page-item">
-                                        <a class="page-link" href="?halaman=<?= $halamanAktif - 1; ?>&q=<?= $keyword_pencarian ?>" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
+                        <?php if( $totalHalaman != 0 ): ?>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <?php if( $halamanAktif == 1 ) : ?>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                    <?php else: ?>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?halaman=<?= $halamanAktif - 1; ?>&q=<?= $keyword_pencarian ?>" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                    <?php endif; ?>
 
-                                <?php for( $i = 1; $i <= $totalHalaman; $i++ ) : ?>
-                                    <?php if( $i == $halamanAktif ) : ?>
-                                        <li class="page-item active">
-                                            <a class="page-link" href="?halaman=<?= $i; ?>&q=<?= $keyword_pencarian ?>"><?= $i; ?></a>
+                                    <?php for( $i = 1; $i <= $totalHalaman; $i++ ) : ?>
+                                        <?php if( $i == $halamanAktif ) : ?>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="?halaman=<?= $i; ?>&q=<?= $keyword_pencarian ?>"><?= $i; ?></a>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?halaman=<?= $i; ?>&q=<?= $keyword_pencarian ?>"><?= $i; ?></a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+
+                                    <?php if( $halamanAktif == $totalHalaman ) :  ?>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
                                         </li>
                                     <?php else : ?>
                                         <li class="page-item">
-                                            <a class="page-link" href="?halaman=<?= $i; ?>&q=<?= $keyword_pencarian ?>"><?= $i; ?></a>
-                                        </li>
+                                            <a class="page-link" href="?halaman=<?= $halamanAktif + 1; ?>&q=<?= $keyword_pencarian ?>" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>     
                                     <?php endif; ?>
-                                <?php endfor; ?>
-
-                                <?php if( $halamanAktif == $totalHalaman ) :  ?>
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
-                                <?php else : ?>
-                                    <li class="page-item">
-                                        <a class="page-link" href="?halaman=<?= $halamanAktif + 1; ?>&q=<?= $keyword_pencarian ?>" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>     
-                                <?php endif; ?>
-                            </ul>
-                        </nav>
+                                </ul>
+                            </nav>
+                        <?php endif; ?>    
                     <?php endif; ?>
                 </div>
                 
